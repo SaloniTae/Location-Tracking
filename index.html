@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Delegate-CH" content="sec-ch-ua-full-version-list https://cloud.51degrees.com; sec-ch-ua-model https://cloud.51degrees.com; sec-ch-ua-platform https://cloud.51degrees.com; sec-ch-ua-platform-version https://cloud.51degrees.com"/>
+    <title>51Degrees Cloud Example</title>
+</head>
+<body>
+    <h1>51Degrees Cloud Example</h1>
+    <button type="button" onclick="buttonClicked()">Use my location</button>
+    <div id="htmlExampleOutput"></div>
+
+    <!-- Include the 51Degrees Cloud JavaScript API -->
+    <script async src="https://cloud.51degrees.com/api/v4/AQTKqFZXlGCzr7Px20g.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            // Execute when the window is fully loaded
+            // For initialization or other actions
+        };
+
+        // Function to handle button click event
+        var buttonClicked = function() {
+            fod.complete(function (data) {
+                // Display location information
+                addText("Town (by lat/lon): " + data.location["town"]);
+                // Add more properties as needed
+            }, 'location');
+        };
+
+        // Function to add text to the HTML output div
+        var addText = function(text) {
+            document.getElementById("htmlExampleOutput").innerHTML += text + "<br>";
+        };
+    </script>
+</body>
+</html>
